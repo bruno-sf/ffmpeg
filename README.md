@@ -34,13 +34,13 @@ docker run --rm -it \
 
 Bulk compress .mp4 files in the current directory:
 ```
- docker run -it -v ${PWD}:/conversor ffmpeg find /conversor -maxdepth 1 -type f -name "*.mp4" -exec ffmpeg -i {} -f mp4 -vcodec libx264 -preset fast -profile:v main -acodec aac -b:v 256k -bufsize 256k {}.mp4 -hide_banner \;
+ docker run --rm -it -v ${PWD}:/conversor ffmpeg find /conversor -maxdepth 1 -type f -name "*.mp4" -exec ffmpeg -i {} -f mp4 -vcodec libx264 -preset fast -profile:v main -acodec aac -b:v 256k -bufsize 256k {}.mp4 -hide_banner \;
 ```
 
 ### Tips :thought_balloon:
 Use it with alias, for example:
 ```
-alias @@vid_conv_mp4_to_mp4_bulk_compress='docker run -it -v ${PWD}:/conversor ffmpeg find /conversor -maxdepth 1 -type f -name "*.mp4" -exec ffmpeg -i {} -f mp4 -vcodec libx264 -preset fast -profile:v main -acodec aac -b:v 256k -bufsize 256k {}.mp4 -hide_banner \;'
+alias @vid_conv_mp4_to_mp4_bulk_compress='docker run -it -v ${PWD}:/conversor ffmpeg find /conversor -maxdepth 1 -type f -name "*.mp4" -exec ffmpeg -i {} -f mp4 -vcodec libx264 -preset fast -profile:v main -acodec aac -b:v 256k -bufsize 256k {}.mp4 -hide_banner \;'
 ```
 
 ## License
